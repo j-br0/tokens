@@ -1,0 +1,28 @@
+from random import randint
+
+def game():
+    x = 1
+    y = 2
+    while True:
+        if randint(0,2) == 0:
+            y += 1
+            x -= 1
+        else:
+            x += 1
+            y -= 1
+        if x == 0:
+            return "y"
+        if y == 0:
+            return "x"     
+
+def montecarlo(times):
+    x_count = 0
+    for i in range(times):
+        if game() == "x":
+            x_count += 1
+    x_count = float(x_count)
+    return x_count / times
+
+print montecarlo(100000)
+print montecarlo(100000)
+print montecarlo(1000000)
